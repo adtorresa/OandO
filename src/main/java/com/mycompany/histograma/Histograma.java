@@ -39,9 +39,10 @@ public class Histograma extends JPanel implements Observer {
                 g.setColor(Color.RED);
             else
                 g.setColor(Color.GREEN);
-            g.drawLine(xi,10, xi,10+y);
+            g.drawLine(xi,300, xi,10+y);
             xi+=5;
             i++;
+            //fff
             
         }
     }
