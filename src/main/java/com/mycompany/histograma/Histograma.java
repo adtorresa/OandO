@@ -19,8 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -76,6 +76,11 @@ public class Histograma extends JPanel implements Observer {
         c.addObserver(h);
         f.getContentPane().add(h);
         JPanel contentCenter = new JPanel(new GridBagLayout());
+        //JTextArea 
+        Conjunto d = new Conjunto(intQuantity);
+        
+        JTextArea Jarea = new JTextArea("DANIEL");
+
         JButton  button1 = new JButton ("Organizar por burbuja");
         JButton  button2 = new JButton ("Organizar por QuickSort");
         JButton  button3 = new JButton ("Organizar por ShellSort");
@@ -86,19 +91,24 @@ public class Histograma extends JPanel implements Observer {
         Sort    = new Sort(c.getX());
         
         f.add(contentCenter,BorderLayout.SOUTH);
+        contentCenter.add(Jarea);
         contentCenter.add(button1);
         contentCenter.add(button2);
         contentCenter.add(button3);
         contentCenter.add(button4);
+        
         f.pack();
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
+        //try{
         final Thread t=new Thread(new Runnable() {
             @Override
             public void run() {
                    f.setVisible(true);
             }
-        });
+        }
+        //        }catch(IllegalThreadStateException ITE){
+        //    System.out.println(ITE);
+        );
         
         t.start();
         
