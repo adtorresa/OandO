@@ -79,6 +79,7 @@ public class Histograma extends JPanel implements Observer {
         JButton  button1 = new JButton ("Organizar por burbuja");
         JButton  button2 = new JButton ("Organizar por QuickSort");
         JButton  button3 = new JButton ("Organizar por ShellSort");
+        JButton  button4 = new JButton ("Desordenar");
         
         burbuja = new Burbuja(c.getX());
         shell   = new Shell(c.getX());
@@ -88,6 +89,7 @@ public class Histograma extends JPanel implements Observer {
         contentCenter.add(button1);
         contentCenter.add(button2);
         contentCenter.add(button3);
+        contentCenter.add(button4);
         f.pack();
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
@@ -117,10 +119,16 @@ public class Histograma extends JPanel implements Observer {
         
         final Thread ordenShell=new Thread(new Runnable() {
         public void run() {
-               c.setCommand(shell);
-               c.Ordenar();
+            c.setCommand(shell);
+            c.Ordenar();
          }
-        });   
+        });
+        
+        final Thread Random=new Thread(new Runnable() {
+        public void run() {            
+            c.Random(20);
+         }
+        });
         
         //Eventos Botones
         button1.addActionListener(new ActionListener() {
@@ -140,6 +148,16 @@ public class Histograma extends JPanel implements Observer {
              ordenShell.start();
          }          
         });
+        
+        button4.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+             Random.start();
+         }          
+        });
+        
+
+        
+        
         
         try {
             Thread.currentThread().join();

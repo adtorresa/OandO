@@ -47,5 +47,15 @@ public class Conjunto extends Observable{
        this.notifyObservers(this.x);
     }
     
+    public void Random(int intQuantity){
+        x=new int[intQuantity];
+        Random r=new Random(System.currentTimeMillis());
+        for (int i = 0; i < x.length; i++) {
+            x[i]=r.nextInt(200);            
+        }
+       this.setChanged();
+       this.notifyObservers(this.x);
+    }
+    
     
 }
