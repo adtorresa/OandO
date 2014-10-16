@@ -75,12 +75,11 @@ public class Histograma extends JPanel implements Observer {
         Histograma h=new Histograma(c);
         c.addObserver(h);
         f.getContentPane().add(h);
-        JPanel contentCenter = new JPanel(new GridBagLayout());
-        //JTextArea 
-        Conjunto d = new Conjunto(intQuantity);
+        JPanel contentCenter = new JPanel(new GridBagLayout()); 
+        //Conjunto d = new Conjunto(intQuantity);
         
         JTextArea Jarea = new JTextArea("DANIEL");
-
+       
         JButton  button1 = new JButton ("Organizar por burbuja");
         JButton  button2 = new JButton ("Organizar por QuickSort");
         JButton  button3 = new JButton ("Organizar por ShellSort");
